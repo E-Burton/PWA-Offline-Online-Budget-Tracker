@@ -10,6 +10,7 @@ Add backend functionality to existing Budget Tracker application to allow for of
 * [User Story & Criteria](#user-story-and-criteria)
 * [Tools Implemented](#tools-implemented)
 * [Installation](#installation)
+* [Deployed Application](#deployed-application)
 * [Additional Resources](#additional-resources)
 
 ## User Story and Criteria
@@ -32,5 +33,7 @@ THEN that will be shown on the page, and added to my transaction history when my
 ## Installation
 
 npm install compression express lite-server mongoose morgan
+
+## Deployed Application
 
 ## Additional Resources
