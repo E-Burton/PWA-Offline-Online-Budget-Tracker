@@ -7,10 +7,10 @@ const FILES_TO_CACHE = [
     "/icons/icon-512x512.png"
   ];
   
-  
   const STATIC_CACHE = "static-cache-v1";
   const RUNTIME_CACHE = "runtime-cache";
   
+  // Install
   self.addEventListener("install", event => {
     event.waitUntil(
       caches
@@ -76,7 +76,7 @@ const FILES_TO_CACHE = [
           return cachedResponse;
         }
   
-        // request is not in cache. make network request and cache the response
+        // request is not in cache, make network request and cache the response
         return caches.open(RUNTIME_CACHE).then(cache => {
           return fetch(event.request).then(response => {
             return cache.put(event.request, response.clone()).then(() => {
