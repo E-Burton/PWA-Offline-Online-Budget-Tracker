@@ -43,9 +43,9 @@ function checkDatabase() {
     const getAll = store.getAll();
     
     getAll.onsuccess = function () {
-        console.log("getAll Data: ", getAll);
-        console.log("getAll.result Data: ", getAll.result);
-        console.log("JSON Stringify getAll.result Data: ", JSON.stringify(getAll.result));
+        // console.log("getAll Data: ", getAll);
+        // console.log("getAll.result Data: ", getAll.result);
+        // console.log("JSON Stringify getAll.result Data: ", JSON.stringify(getAll.result));
 
         if (getAll.result.length > 0) {
             fetch("/api/transaction/bulk", {

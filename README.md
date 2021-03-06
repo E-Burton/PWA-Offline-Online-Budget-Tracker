@@ -1,4 +1,4 @@
-# PWA-Offline-Online-Budget-Tracker
+# PWA-Offline-Online-Budget-Tracker [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Objective
 
@@ -10,6 +10,7 @@ Add backend functionality to existing Budget Tracker application to allow for of
 * [User Story & Criteria](#user-story-and-criteria)
 * [Tools Implemented](#tools-implemented)
 * [Installation](#installation)
+* [Usage](#usage)
 * [Deployed Application](#deployed-application)
 * [Additional Resources](#additional-resources)
 
@@ -30,12 +31,17 @@ THEN that will be shown on the page, and added to my transaction history when my
 * JavaScript
 * Bootsrap
 * Node.js & Express
+* [`restify npm`](https://github.com/restify/node-restify)
 * MongoDB Atlas & Mongoose
 * Heroku
 
 ## Installation
 
-npm install 
+`npm install` 
+
+## Usage
+
+`npm start`
 
 ## Deployed Application
 
@@ -45,3 +51,4 @@ npm install
 
 * [Understanding Service Workers](https://blog.bitsrc.io/understanding-service-workers-and-caching-strategies-a6c1e1cbde03)
 * [How to Handle POST/PUT Requests in Offline Application](https://blog.formpl.us/how-to-handle-post-put-requests-in-offline-applications-using-service-workers-indexedb-and-da7d0798a9ab)
+* [Empty Body in Fetch Post Request](https://stackoverflow.com/questions/54016068/empty-body-in-fetch-post-request)
