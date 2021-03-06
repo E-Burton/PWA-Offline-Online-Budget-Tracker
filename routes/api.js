@@ -8,16 +8,21 @@ router.post("/api/transaction", ({body}, res) => {
     })
     .catch(err => {
       res.status(404).json(err);
+      console.log(err);
     });
 });
 
 router.post("/api/transaction/bulk", ({body}, res) => {
-  Transaction.insertMany(body)
+  console.log("body bulk route: ", {body});
+  const bulk = JSON.parse(body);
+  console.log("parse body bulk route: ", bulk);
+  Transaction.insertMany(bulk)
     .then(dbTransaction => {
       res.json(dbTransaction);
     })
     .catch(err => {
       res.status(404).json(err);
+      console.log(err);
     });
 });
 
@@ -28,6 +33,7 @@ router.get("/api/transaction", (req, res) => {
     })
     .catch(err => {
       res.status(404).json(err);
+      console.log(err);
     });
 });
 

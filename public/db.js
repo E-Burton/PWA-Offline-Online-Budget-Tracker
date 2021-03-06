@@ -41,8 +41,12 @@ function checkDatabase() {
 
     // get all records from store and set to a variable
     const getAll = store.getAll();
-
+    
     getAll.onsuccess = function () {
+        console.log("getAll Data: ", getAll);
+        console.log("getAll.result Data: ", getAll.result);
+        console.log("JSON Stringify getAll.result Data: ", JSON.stringify(getAll.result));
+
         if (getAll.result.length > 0) {
             fetch("/api/transaction/bulk", {
                 method: "POST",
@@ -52,7 +56,7 @@ function checkDatabase() {
                     "Conetent-Type": "application/json"
                 }
             })
-            .then(response => response.json())
+            .then(response => {response.json()})
             .then(() => {
                 // if successful, open a transaction on pending db
                 const transaction = db.transaction(["pending"], "readwrite");

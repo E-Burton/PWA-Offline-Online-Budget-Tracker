@@ -112,6 +112,8 @@ function sendTransaction(isAdding) {
   populateTable();
   populateTotal();
   
+  console.log(JSON.stringify(transaction));
+
   // also send to server
   fetch("/api/transaction", {
     method: "POST",
@@ -121,7 +123,7 @@ function sendTransaction(isAdding) {
       "Content-Type": "application/json"
     }
   })
-  .then(response => {    
+  .then(response => { 
     return response.json();
   })
   .then(data => {
