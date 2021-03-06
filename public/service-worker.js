@@ -1,9 +1,10 @@
 const FILES_TO_CACHE = [
   "/",
-  "/index.html",
-  "/styles.css",
   "/db.js",
+  "/index.html",
   "/index.js",
+  "/manifest.json",
+  "/styles.css",
   "/icons/icon-192x192.png",
   "/icons/icon-512x512.png"
 ];
@@ -17,10 +18,11 @@ self.addEventListener('install', (event) => {
     caches
       .open(PRECACHE)
       .then((cache) => cache.addAll(FILES_TO_CACHE))
-      .then(self.skipWaiting())
-  );
-
-  console.log("Files pre-cached successfully!");
+      .then(() => {
+        console.log("Files pre-cached successfully!");
+        self.skipWaiting()
+      })
+  );  
 });
 
 // The activate handler takes care of cleaning up old caches.
@@ -43,40 +45,36 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-self.addEventListener('fetch', (event) => {
-
-  if (event.request.url.includes("/api/")) {
-    event.respondWith(
+self.addEventListener("fetch", function(evt) {
+  if (evt.request.url.includes("/api/")) {
+    evt.respondWith(
       caches.open(RUNTIME).then(cache => {
-        return fetch(event.request)
+        return fetch(evt.request)
           .then(response => {
             // If the response was good, clone it and store it in the cache.
             if (response.status === 200) {
-              cache.put(event.request.url, response.clone());
+              cache.put(evt.request.url, response.clone());
             }
 
             return response;
           })
           .catch(err => {
             // Network request failed, try to get it from the cache.
-            return cache.match(event.request);
+            return cache.match(evt.request);
           });
       }).catch(err => console.log(err))
     );
 
     return;
-  }
-
-  event.respondWith(
-    fetch(event.request).catch(function () {
-      return caches.match(event.request).then(function (response) {
-        if (response) {
-          return response;
-        } else if (event.request.headers.get("accept").includes("text/html")) {
-          // return the cached home page for all requests for html pages
-          return caches.match("/");
-        }
-      });
-    })
-  );
+  } 
+  // else {
+    // respond from static cache, request is not for /api/*
+    evt.respondWith(
+      caches.open(PRECACHE).then(cache => {
+        return cache.match(evt.request).then(response => {
+          return response || fetch(evt.request);
+        });
+      })
+    );
+  // }
 });

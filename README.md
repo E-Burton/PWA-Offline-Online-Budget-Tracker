@@ -26,15 +26,20 @@ THEN that will be shown on the page, and added to my transaction history when my
 
 ## Tools Implemented
 
+* HTML & CSS 
 * JavaScript
-* MongoDB Atlas
+* Bootsrap
+* Node.js & Express
+* MongoDB Atlas & Mongoose
 * Heroku
 
 ## Installation
 
-npm install compression express lite-server mongoose morgan
+npm install 
 
 ## Deployed Application
+
+[Click](https://pwa-budget-tracker-eb.herokuapp.com/) to see deployed application on Heroku!
 
 ## Additional Resources
 
