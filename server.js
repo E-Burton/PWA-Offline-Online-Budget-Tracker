@@ -17,7 +17,7 @@ app.use(restify.plugins.bodyParser());
 
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost/budget-tracker", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget-tracker", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
