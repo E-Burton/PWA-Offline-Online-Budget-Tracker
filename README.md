@@ -37,3 +37,6 @@ npm install compression express lite-server mongoose morgan
 ## Deployed Application
 
 ## Additional Resources
+
+* [Understanding Service Workers](https://blog.bitsrc.io/understanding-service-workers-and-caching-strategies-a6c1e1cbde03)
+* [How to Handle POST/PUT Requests in Offline Application](https://blog.formpl.us/how-to-handle-post-put-requests-in-offline-applications-using-service-workers-indexedb-and-da7d0798a9ab)
