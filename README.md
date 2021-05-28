@@ -45,7 +45,9 @@ THEN that will be shown on the page, and added to my transaction history when my
 
 ## Deployed Application
 
-[Click](https://pwa-budget-tracker-eb.herokuapp.com/) to see deployed application on Heroku!
+![Budget Tracker](./assets/pwa-budget-tracker.png)
+
+[Click](https://pwa-budget-tracker-eb.herokuapp.com/) to see the live application on Heroku!
 
 ## Additional Resources
 
